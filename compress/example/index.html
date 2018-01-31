@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang=zh-cn>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="padding: 50px">
+    <input type="file" style="margin: 20px 0" id="uploadFile">
+    <div id="imgBox"></div>
+
+    <script src="../dist/index.js"></script>
+    <script>
+        document.getElementById('uploadFile').onchange = function () {
+
+            new Compress().image(this.files[0], {
+                success: function (base64) {
+                    var img = new Image();
+                    img.src = base64;
+                    document.getElementById('imgBox').append(img);
+
+                    this.value = '';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

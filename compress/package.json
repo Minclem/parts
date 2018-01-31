@@ -1,0 +1,22 @@
+{
+  "name": "Compress",
+  "version": "0.1.0",
+  "description": "Compress Images",
+  "main": "index.js",
+  "scripts": {
+    "dev": "rm -rf dist && NODE_ENV=development rollup -w -c rollup.config.js",
+    "build": "rm -rf dist && NODE_ENV=production rollup -c rollup.config.js"
+  },
+  "author": "Mincle",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "rollup": "^0.55.1",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-node-resolve": "^3.0.2",
+    "rollup-plugin-uglify": "^3.0.0"
+  }
+}
