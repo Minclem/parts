@@ -3,9 +3,8 @@ import babel from 'rollup-plugin-babel';
 import uglify from 'rollup-plugin-uglify';
 import json from 'rollup-plugin-json';
 
-import { name } from './package.json';
-
 let env = process.env.NODE_ENV;
+let main = process.env.BUILD_MAIN;
 
 let config = {
     input: 'src/index.js',
@@ -13,7 +12,7 @@ let config = {
         file: 'dist/index.js',
         format: 'umd'
     },
-    moduleName: name,
+    moduleName: main,
     plugins: [
         json(),
         nodeResolve(),
