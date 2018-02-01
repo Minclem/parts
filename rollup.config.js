@@ -13,28 +13,15 @@ let config = {
         format: 'umd'
     },
     moduleName: main,
+    sourceMap: env === 'production' || 'inline',
     plugins: [
         json(),
         nodeResolve(),
         babel({
             exclude: 'node_modules/**'
-        })
-    ],
-    sourcemap: true
+        }),
+        (env === 'production' && uglify())
+    ]
 };
-
-if (env === 'development') {
-    config.watch = {
-        include: 'src/**',
-        exclude: 'node_modules/**'
-    }
-}
-
-if (env === 'production') {
-    config.plugins = Object.assign(config.plugins, [
-        uglify()
-    ]);
-}
-
 
 export default config;

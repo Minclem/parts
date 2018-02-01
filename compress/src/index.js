@@ -13,10 +13,10 @@ export default class Compress {
             quality: 0.92,
             success () {},
             error (err) {
-                alert(err)
+                alert(err);
             }
-        }
-    };
+        };
+    }
 
     /**
      * 图片压缩
@@ -26,19 +26,19 @@ export default class Compress {
     image (file, option) {
         if (typeof file !== 'object' || typeof file.name !== 'string') {
             this.opts.error('请传入fileList对象');
-            return false
+            return false;
         }
 
         let ext = this.getFileExt(file.name);
 
         if (ext !== 'jpg' && ext !== 'jpeg' && ext !== 'png') {
             this.opts.error('只支持 jpg, png');
-            return false
+            return false;
         }
 
         this.opts = Object.assign(this.opts, option);
         this.base64(this.getObjectURL(file), this.opts.success);
-    };
+    }
 
     /**
      * 图片转base64
@@ -63,8 +63,8 @@ export default class Compress {
             ctx.drawImage(img, 0, 0, width, height);
 
             fn(canvas.toDataURL(this.opts.type, this.opts.quality));
-        }
-    };
+        };
+    }
 
     /**
      * 获取file对象链接
@@ -84,7 +84,7 @@ export default class Compress {
             url = document.selection.createRange().text;
         }
         return url;
-    };
+    }
 
     /**
      * 获取文件拓展名
@@ -93,5 +93,5 @@ export default class Compress {
      */
     getFileExt (str) {
         return str.substr(str.lastIndexOf('.') + 1).toLowerCase();
-    };
+    }
 }

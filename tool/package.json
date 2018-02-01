@@ -4,9 +4,11 @@
     "main": "index.js",
     "description": "Tool function",
     "scripts": {
-        "dev": "rm -rf dist && NODE_ENV=development BUILD_MAIN=Tool rollup -w -c ../rollup.config.js",
-        "build": "rm -rf dist && NODE_ENV=production BUILD_MAIN=Tool rollup -c ../rollup.config.js"
+        "dev": "rm -rf dist && NODE_ENV=development BUILD_MAIN=Tool rollup -w -c ../rollup.config.js && npm run lint",
+        "build": "rm -rf dist && NODE_ENV=production BUILD_MAIN=Tool rollup -c ../rollup.config.js",
+        "lint": "eslint src --ext .js"
     },
     "author": "Mincle",
-    "license": "MIT"
+    "license": "MIT",
+    "devDependencies": {}
 }

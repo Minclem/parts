@@ -8,8 +8,8 @@ export default new class Tool {
      */
 
     isIe89 () {
-        return /MSIE (8|9)\.0/.test(navigator.userAgent)
-    };
+        return /MSIE (8|9)\.0/.test(navigator.userAgent);
+    }
 
     /**
      * 是否未定义
@@ -18,8 +18,8 @@ export default new class Tool {
      */
 
     isUndefined (obj) {
-        return obj === void 0
-    };
+        return obj === void 0;
+    }
 
     /**
      * 是否定义
@@ -28,8 +28,8 @@ export default new class Tool {
      */
 
     isDefined (obj) {
-        return obj !== void 0
-    };
+        return obj !== void 0;
+    }
 
     /**
      * 是否函数
@@ -38,8 +38,8 @@ export default new class Tool {
      */
 
     isFn (fn) {
-        return typeof fn === 'function'
-    };
+        return typeof fn === 'function';
+    }
 
     /**
      * 是否为对象（数组，对象）
@@ -48,8 +48,8 @@ export default new class Tool {
      */
 
     isObj (obj) {
-        return !!obj && typeof obj === 'object'
-    };
+        return !!obj && typeof obj === 'object';
+    }
 
     /**
      * 是否为整数(字符串数值亦可)
@@ -58,8 +58,8 @@ export default new class Tool {
      */
 
     isInt (n) {
-        return /^[0-9]+$/.test(n)
-    };
+        return /^[0-9]+$/.test(n);
+    }
 
     /**
      * 是否数字
@@ -67,9 +67,9 @@ export default new class Tool {
      * @returns {boolean}
      */
 
-     isNumber (n) {
-        return parseInt(n) === parseInt(n) && -n === -n
-    };
+    isNumber (n) {
+        return parseInt(n) === parseInt(n) && -n === -n;
+    }
 
 
     /**
@@ -80,8 +80,8 @@ export default new class Tool {
      */
 
     isDiff (a, b) {
-        return typeof a === typeof b ? JSON.stringify(a) !== JSON.stringify(b) : false
-    };
+        return typeof a === typeof b ? JSON.stringify(a) !== JSON.stringify(b) : false;
+    }
 
     /**
      * 判断是否为 iOS
@@ -89,8 +89,8 @@ export default new class Tool {
      */
 
     iOS () {
-        return (/iPhone|iPad|iPod/).test(navigator.userAgent)
-    };
+        return (/iPhone|iPad|iPod/).test(navigator.userAgent);
+    }
 
     /**
      * 判断是否为 Android
@@ -98,8 +98,8 @@ export default new class Tool {
      */
 
     isAndroid () {
-        return (/Android/).test(navigator.userAgent)
-    };
+        return (/Android/).test(navigator.userAgent);
+    }
 
     /**
      * 重复内容
@@ -111,15 +111,15 @@ export default new class Tool {
     strRepeat (str, n) {
         if (!str) return '';
         if (!this.isNumber(n) || n <= 1) {
-            return str
+            return str;
         }
         let _str = '';
 
         for (var i = n - 1; i >= 0; i--) {
             _str += str;
         }
-        return _str
-    };
+        return _str;
+    }
 
     /**
      * 手机号加密
@@ -130,12 +130,12 @@ export default new class Tool {
     encodePhone (phone) {
         if (!phone || this.isNumber(phone)) {
             return phone.toString().replace(/^(\d{3})(\d{4})(\d{4})/, function ($1, $2, $3, $4) {
-                return [$2, this.strRepeat('*', $3.length), $4].join('')
-            })
+                return [$2, this.strRepeat('*', $3.length), $4].join('');
+            });
         } else {
-            return phone || ''
+            return phone || '';
         }
-    };
+    }
 
     /**
      * 克隆
@@ -143,13 +143,13 @@ export default new class Tool {
      * @returns {*}
      */
 
-     clone (obj) {
+    clone (obj) {
         if (this.isObj(obj)) {
-            return JSON.parse(JSON.stringify(obj))
+            return JSON.parse(JSON.stringify(obj));
         } else {
-            return this.isFn(obj) ? new obj : obj
+            return this.isFn(obj) ? new obj : obj;
         }
-    };
+    }
 
     /**
      * 是否为邮箱
@@ -158,8 +158,8 @@ export default new class Tool {
      */
 
     isEmail (str) {
-        return /^[0-9a-z][_.0-9a-z-]{0,31}@([0-9a-z][0-9a-z-]{0,30}[0-9a-z]\.){1,3}[a-z]{2,4}$/.test(str)
-    };
+        return /^[0-9a-z][_.0-9a-z-]{0,31}@([0-9a-z][0-9a-z-]{0,30}[0-9a-z]\.){1,3}[a-z]{2,4}$/.test(str);
+    }
 
     /**
      * 是否为手机(只进行以1开头的11位数验证， 防止出现问题，如发行新的手机段)
@@ -168,8 +168,8 @@ export default new class Tool {
      */
 
     isPhone (str) {
-        return /^1\d{10}$/.test(str)
-    };
+        return /^1\d{10}$/.test(str);
+    }
 
     /**
      * 是否中文名称
@@ -178,8 +178,8 @@ export default new class Tool {
      */
 
     isChinese (str) {
-        return /^[\u4e00-\u9fa5·]+$/.test(str)
-    };
+        return /^[\u4e00-\u9fa5·]+$/.test(str);
+    }
 
     /**
      * 是否英文名称
@@ -188,8 +188,8 @@ export default new class Tool {
      */
 
     isEnglish (str) {
-        return /^[a-zA-Z\\s]+/.test(str)
-    };
+        return /^[a-zA-Z\\s]+/.test(str);
+    }
 
     /**
      * 是否为链接
@@ -198,8 +198,8 @@ export default new class Tool {
      */
 
     isUrl (str) {
-        return /^(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?$/.test(str)
-    };
+        return /^(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-.,@?^=%&amp;:/~+#]*[\w\-@?^=%&amp;/~+#])?$/.test(str);
+    }
 
     /**
      * 是否为护照
@@ -208,8 +208,8 @@ export default new class Tool {
      */
 
     isPassport (str) {
-        return /^[a-zA-Z0-9]{5,17}$/.test(str)
-    };
+        return /^[a-zA-Z0-9]{5,17}$/.test(str);
+    }
 
     /**
      * 是否为身份证
@@ -218,8 +218,8 @@ export default new class Tool {
      */
 
     isIdCard (str) {
-        return /(^\d{15}$)|(^\d{17}([0-9]|X)$)/i.test(str)
-    };
+        return /(^\d{15}$)|(^\d{17}([0-9]|X)$)/i.test(str);
+    }
 
     /**
      * 拓展
@@ -229,8 +229,8 @@ export default new class Tool {
      */
 
     extends (target, ...sources) {
-        return Object.assign(target, ...sources)
-    };
+        return Object.assign(target, ...sources);
+    }
 
     /**
      * 获取文件路径
@@ -251,29 +251,7 @@ export default new class Tool {
             url = document.selection.createRange().text;
         }
         return url;
-    };
-
-    /**
-     * 获取文件大小
-     * @param obj
-     * @returns {number}
-     */
-
-    getFileSize (obj) {
-        var fileSize = 0;
-        var isIE = /msie/i.test(navigator.userAgent) && !window.opera;
-
-        if (isIE && !obj.files) {
-            var fileSystem = new ActiveXObject("Scripting.FileSystemObject");
-            var file = fileSystem.GetFile(obj.value);
-
-            fileSize = file.Size;
-        }else {
-            fileSize = obj.files[0].size;
-        }
-
-        return fileSize
-    };
+    }
 
     /**
      * 获取文件拓展名
@@ -283,12 +261,12 @@ export default new class Tool {
 
     getFileExt (obj) {
         return obj.value.substr(obj.value.lastIndexOf('.')).toLowerCase();
-    };
+    }
 
     formatDate (date, format) {
         // 服务端返回的时间戳可能以秒的形式
         if (!date) {
-            return false
+            return false;
         }
         date = parseInt(date.toString().length < 11 ? date * 1000 : date);
 
@@ -308,14 +286,14 @@ export default new class Tool {
         s = this.formatNum(s);
 
         if (format === 'time') {
-            return h + ':' + m + ':' + s
+            return h + ':' + m + ':' + s;
         } else if (format === 'date') {
-            return y + '-' + M + '-' + d
+            return y + '-' + M + '-' + d;
         } else {
-            return y + '-' + M + '-' + d + ' ' + h + ':' + m + ':' + s
+            return y + '-' + M + '-' + d + ' ' + h + ':' + m + ':' + s;
         }
 
-    };
+    }
 
     /**
      * 数值格式化
@@ -325,5 +303,5 @@ export default new class Tool {
 
     formatNum (n) {
         return n >= 10 ? n : '0' + n;
-    };
-}
+    }
+};
